@@ -7,7 +7,7 @@ on:
       device:
         description: '请输入设备型号,比如: ax6s wr30u-stock x86_64_DEVICE_generic'
         required: true
-        default: 'ax6s'
+        default: 'x86_generic_DEVICE_generic'
 
 jobs:
   build:
@@ -53,6 +53,9 @@ jobs:
 
     - name: Compile ${{ env.DEVICE_NAME }} firmware
       run: cd immortalwrt && make -j$(nproc) defconfig download clean world
+
+    - name: Setup Debug Session
+      uses: csexton/debugger-action@master
 
     - name: Upload firmware to workflow directory
       uses: actions/upload-artifact@main
