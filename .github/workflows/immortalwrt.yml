@@ -56,7 +56,8 @@ jobs:
       run: cd immortalwrt && make -j$(nproc) defconfig download clean world
 
     - name: Setup Debug Session
-      uses: csexton/debugger-action@master
+      #uses: csexton/debugger-action@master
+      run: echo "skip"
 
     - name: Upload firmware to workflow directory
       uses: actions/upload-artifact@main
