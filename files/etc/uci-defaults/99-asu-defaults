@@ -19,7 +19,8 @@ if [ -n "$root_password" ]; then
 fi
 
 if [ -n "$lan_ip_address" ]; then
-  uci set network.lan.ipaddr="$lan_ip_address"
+  #uci set network.lan.ipaddr="$lan_ip_address"
+  uci set network.lan.proto='dhcp'
   uci commit network
 fi
 
