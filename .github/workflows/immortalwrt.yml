@@ -49,6 +49,7 @@ jobs:
         CONFIG_LUCI_LANG_zh_Hans=y
         EOF
         cat config.buildinfo >>immortalwrt/.config && cat immortalwrt/.config
+        cp config-6.6 immortalwrt/target/linux/x86/config-6.6
         echo "DEVICE_NAME=${DEVICE_NAME}" >> $GITHUB_ENV
 
     - name: Compile ${{ env.DEVICE_NAME }} firmware
